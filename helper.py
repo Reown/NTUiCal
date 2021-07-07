@@ -75,12 +75,13 @@ def cleanweeks(weeks):
     
         elif "-" in(weeks[k][2:]):
             temp = weeks[k][2:].split("-")
-            starttemp = int(temp[0])
-            endtemp = int(temp[1])
-            
+            temp1 = int(temp[0])
+            temp2 = int(temp[1])
+            temp = list(range(temp1, temp2+1))
             allweeks.append(temp)
 
         else:
+            temp = weeks[k][2:]
             allweeks.append(temp)
 
     return allweeks
