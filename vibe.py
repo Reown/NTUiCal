@@ -12,6 +12,7 @@ course, title, ctype, group, day, time, venue, weeks = getsplits(valsplit)
 timestart, timeend = cleantime(time)
 allweeks = cleanweeks(weeks)
 
+
 print(course)
 print(title)
 print(ctype)

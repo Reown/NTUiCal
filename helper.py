@@ -75,6 +75,9 @@ def cleanweeks(weeks):
     
         elif "-" in(weeks[k][2:]):
             temp = weeks[k][2:].split("-")
+            starttemp = int(temp[0])
+            endtemp = int(temp[1])
+            
             allweeks.append(temp)
 
         else:
