@@ -87,6 +87,16 @@ def cleanweeks(weeks):
     return allweeks
 
 
+def cleanday(day):
+    utilday = []
+
+    k = 0
+    for k in range(len(day)):
+        utilday.append(day[k][:2])
+
+    return utilday
+
+
 def checkdel(weeks):
     exclude = ["", "course"]
     exc1, exc2 = exclude
