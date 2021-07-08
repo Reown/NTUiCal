@@ -25,8 +25,8 @@ def getsplits(valsplit):
             else:
                 course.append("")
                 weeks.append(cc[k][1])
+                
     course.pop()
-
 
     title = []
     ctype = []
