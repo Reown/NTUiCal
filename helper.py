@@ -85,3 +85,32 @@ def cleanweeks(weeks):
             allweeks.append(temp)
 
     return allweeks
+
+
+def checkdel(weeks):
+    exclude = ["", "course"]
+    exc1, exc2 = exclude
+    topop = []
+
+    j = 0
+    for j in range(len(weeks)):
+        if (weeks[j] == exc1) or (weeks[j] == exc2):
+            topop.append(j)
+
+    topop.sort(reverse = True)
+    return topop
+
+
+def popall(course, title, ctype, group, day, time, venue, weeks, topop):
+    i = 0
+    for i in range(len(topop)):
+        course.pop(topop[i])
+        title.pop(topop[i])
+        ctype.pop(topop[i])
+        group.pop(topop[i])
+        day.pop(topop[i])
+        time.pop(topop[i])
+        venue.pop(topop[i])
+        weeks.pop(topop[i])
+
+    return course, title, ctype, group, day, time, venue, weeks
