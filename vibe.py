@@ -6,8 +6,6 @@ from dateutil.relativedelta import *
 from helper import *
 
 
-
-
 def p2cal(c, weekbef):
     i = 0
     for i in range(len(allweeks)):
@@ -17,8 +15,8 @@ def p2cal(c, weekbef):
             
             e = Event()
             e.name = course[i]
-            e.begin = str(weekbef.date()) + " " + timestart[i][0] + ":" + timestart[i][1] + ":00"
-            e.end = str(weekbef.date()) + " " + timeend[i][0] + ":" + timeend[i][1] + ":00"
+            e.begin = str((weekbef+relativedelta(weeks =+ int(allweeks[i][n]), weekday = utilday[i])).date()) + " " + str(format(int(timestart[i][0]) - 8, '02d')) + ":" + timestart[i][1] + ":00"
+            e.end = str((weekbef+relativedelta(weeks =+ int(allweeks[i][n]), weekday = utilday[i])).date()) + " " + str(format(int(timeend[i][0]) - 8, '02d')) + ":" + timeend[i][1] + ":00"
             #e.begin = '2021-07-01 00:00:00'
             #e.end = '2021-07-01 01:00:00'
             e.location = venue[i]
@@ -29,14 +27,13 @@ def p2cal(c, weekbef):
 
     return c
 
+
 #s = input("First day of class (DDMMYYYY): ")
 s = "09082021"
 startofclass = datetime.datetime.strptime(s, '%d%m%Y')
 weekbef = startofclass+relativedelta(weeks=-1)
 
-#print((startofclass+relativedelta(weekday=MO)).date())
-
-with open("sample2.txt", "r") as myfile:
+with open("sample.txt", "r") as myfile:
     val = myfile.read()
 
 valsplit = splitall(val)
@@ -45,8 +42,12 @@ topop = checkdel(weeks)
 course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
 timestart, timeend = cleantime(time)
 allweeks = cleanweeks(weeks)
-utilday = cleanday(day)
 
+utilday = []
+
+j = 0
+for j in range(len(day)):
+    utilday.append(cleanday(day[j]))
 
 c = Calendar()
 ical = p2cal(c, weekbef)
@@ -55,7 +56,7 @@ with open('my.ics', 'w') as my_file:
     my_file.writelines(ical)
 
 
-
+'''
 print(course)
 print(title)
 print(ctype)
@@ -64,4 +65,6 @@ print(utilday)
 print(timestart)
 print(timeend)
 print(venue)
+'''
 print(allweeks)
+
