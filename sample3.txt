@@ -1,0 +1,15 @@
+EE1005    FROM COMPUTATIONAL THINKING TO PROGRAMMING    3    CORE                   EXEMPTED
+EE2001    CIRCUIT ANALYSIS    4    CORE              32120    REGISTERED         TUT    EE21    MON    0930-1130    TR+65    Teaching Wk1-5
+TUT    EE21    MON    0930-1130    TR+77    Teaching Wk6-13
+LAB    EL44    FRI    1130-1330    S2-B5C-07    Teaching Wk8,11
+EE2004    DIGITAL ELECTRONICS    4    CORE              32150    REGISTERED         TUT    EE25    TUE    1530-1730    TR+67    Teaching Wk1-5
+TUT    EE25    TUE    1530-1730    TR+80    Teaching Wk6-13
+LAB    EL42    FRI    0930-1130    S1-B3C-28    Teaching Wk13
+LAB    EL42    FRI    0930-1130    S2-B4A-01    Teaching Wk5,10
+GC0001    SUSTAINABILITY: SEEING THROUGH THE HAZE    1    CORE    GER         36002    REGISTERED                                  Online course
+HW0188    EFFECTIVE COMMUNICATION    2    CORE    GER         50011    REGISTERED         TUT    A02    TUE    0830-1030    TR+109    Teaching Wk2-13
+MH2810    MATHEMATICS A    4    CORE              32039    REGISTERED         TUT    EE09    WED    1430-1530    TR+80    Teaching Wk2-13
+LEC/STUDIO    LE    FRI    0830-0930    ONLINE    Teaching Wk1-13
+PH1012    PHYSICS A    4    CORE              50207    REGISTERED         TUT    B02    FRI    1430-1530    TR+111    Teaching Wk1-13
+LEC/STUDIO    A    WED    0930-1030    ONLINE    Teaching Wk1-13
+LEC/STUDIO    A    MON    1330-1530    ONLINE    Teaching Wk1-13
