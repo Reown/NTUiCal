@@ -88,13 +88,13 @@ def cleanweeks(weeks):
 
 
 def cleanday(day):
-    utilday = []
-
-    k = 0
-    for k in range(len(day)):
-        utilday.append(day[k][:2])
-
-    return utilday
+    return {
+        "MON ": 0,
+        "TUE ": 1,
+        "WED ": 2,
+        "THU ": 3,
+        "FRI ": 4
+    }.get(day, "invalid")
 
 
 def checkdel(weeks):
