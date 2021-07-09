@@ -65,6 +65,6 @@ print(utilday)
 print(timestart)
 print(timeend)
 print(venue)
-'''
 print(allweeks)
+'''
 
