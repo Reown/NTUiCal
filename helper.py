@@ -93,7 +93,8 @@ def cleanday(day):
         "TUE ": 1,
         "WED ": 2,
         "THU ": 3,
-        "FRI ": 4
+        "FRI ": 4,
+        "SAT ": 5
     }.get(day, "invalid")
 
 

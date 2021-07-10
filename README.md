@@ -11,6 +11,6 @@ Python script to parse String from 'Check/Print Courses Registered' to ICS
 - [x] Exempted Modules
 - [x] Online Modules
 - [x] Recess Week
-- [ ] Saturday Classes
+- [x] Saturday Classes
 - [ ] Merged rows (Empty Course/Title)
 - [ ] Missing Laboratory Codes (Engineering only?)
