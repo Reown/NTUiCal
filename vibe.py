@@ -12,7 +12,9 @@ def p2cal(c, weekbef):
 
         n = 0
         for n in range(len(allweeks[i])):
-            
+            if(n > 7):
+                n = n + 1
+                
             e = Event()
             e.name = course[i]
             e.begin = str((weekbef+relativedelta(weeks =+ int(allweeks[i][n]), weekday = utilday[i])).date()) + " " + str(format(int(timestart[i][0]) - 8, '02d')) + ":" + timestart[i][1] + ":00"
@@ -67,4 +69,3 @@ print(timeend)
 print(venue)
 print(allweeks)
 '''
-
