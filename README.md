@@ -1,6 +1,8 @@
 # NTUiCal
 Python script to parse String from 'Check/Print Courses Registered' to ICS 
 
+## Input Data Required
+
 ## Usage
 
 ## Supported Edge Cases
@@ -9,3 +11,4 @@ Python script to parse String from 'Check/Print Courses Registered' to ICS
 - [ ] Recess Week
 - [ ] Saturday Classes
 - [ ] Merged rows (Empty Course/Title)
+- [ ] Missing Laboratory Codes (Engineering only?)
