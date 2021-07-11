@@ -8,14 +8,14 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 ## Usage -WIP-
 Depending on how technically inclined you are, there will be several ways for you to obtain the .ics file
 
-- Running the base script
-    1. Create 
-    2. Input
+1. Running the base script
+    - Create 
+    - Input
 
-- WIP
-    1. WIP
+2. WIP
+    - WIP
 
-- TGB
+3. TGB
 
 ## Supported Edge Cases
 - [x] Exempted Modules
