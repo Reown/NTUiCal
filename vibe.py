@@ -32,6 +32,7 @@ def p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, ven
         for n in range(len(allweeks[i])):
             if(int(allweeks[i][n]) > 7):
                 weekstoadd = int(allweeks[i][n]) + 1
+
             else:
                 weekstoadd = int(allweeks[i][n])
 
@@ -61,7 +62,6 @@ if __name__ == "__main__":
         val = myfile.read()
 
     course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(val)
-
     ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
 
     with open('my.ics', 'w') as my_file:
