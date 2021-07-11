@@ -1,9 +1,9 @@
 # NTUiCal
-Python script to parse String from 'Check/Print Courses Registered' to ICS 
+Python script to parse data from 'Check/Print Courses Registered' to ICS 
 
 ## Input Data Required
  - Date of semester's first day according to [NTU calendar](https://www.ntu.edu.sg/admissions/matriculation/academic-calendars)
- - Copy pasted text from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
+ - Semester's table data from ['Check/Print Courses Registered'](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
 
 ## Usage
 
@@ -14,3 +14,4 @@ Python script to parse String from 'Check/Print Courses Registered' to ICS
 - [x] Saturday Classes
 - [ ] Merged rows (Empty Course/Title)
 - [ ] Missing Laboratory Codes (Engineering only?)
+- [ ] 'Asynchronous online learning' Remark
