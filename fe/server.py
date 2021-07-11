@@ -1,16 +1,15 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-data="sdnaosd"
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route("/parse/")
+@app.route('/parse/', methods = ['POST'])
 def parse():
-    print("clickme")
-    return render_template('index.html', data=data)
+    testdata = request.form['parseme']
+    return render_template('index.html', data=testdata)
 
 
 
