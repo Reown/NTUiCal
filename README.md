@@ -12,6 +12,6 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 - [x] Online Modules
 - [x] Recess Week
 - [x] Saturday Classes
-- [ ] Merged rows (Empty Course/Title)
+- [x] Merged rows (Empty Course/Title)
 - [ ] Missing Laboratory Codes (Engineering only?)
 - [ ] 'Asynchronous online learning' Remark
