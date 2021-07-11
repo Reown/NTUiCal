@@ -11,10 +11,10 @@ Depending on how technically inclined you are, there will be several ways for yo
 - Running the base script
     1. Create 
     2. Input
-<br/>
+
 - WIP
     1. WIP
-<br/>
+
 - TGB
 
 ## Supported Edge Cases
