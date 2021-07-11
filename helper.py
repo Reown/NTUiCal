@@ -87,7 +87,7 @@ def cleanweeks(weeks):
     return allweeks
 
 
-def cleanday(day):
+def intday(day):
     return {
         "MON ": 0,
         "TUE ": 1,
@@ -96,6 +96,16 @@ def cleanday(day):
         "FRI ": 4,
         "SAT ": 5
     }.get(day, "invalid")
+
+
+def cleanday(day):
+    utilday = []
+
+    j = 0
+    for j in range(len(day)):
+        utilday.append(intday(day[j]))
+
+    return utilday
 
 
 def checkdel(weeks):
@@ -113,6 +123,7 @@ def checkdel(weeks):
 
 
 def popall(course, title, ctype, group, day, time, venue, weeks, topop):
+    
     i = 0
     for i in range(len(topop)):
         course.pop(topop[i])
