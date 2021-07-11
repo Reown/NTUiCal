@@ -6,7 +6,21 @@ from dateutil.relativedelta import *
 from helper import *
 
 
-def p2cal(c, weekbef):
+def splitfunc(val):
+    valsplit = splitall(val)
+    course, title, ctype, group, day, time, venue, weeks = getsplits(valsplit)
+    topop = checkdel(weeks)
+    course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
+    timestart, timeend = cleantime(time)
+    allweeks = cleanweeks(weeks)
+    utilday = cleanday(day)
+
+    return course, title, ctype, group, utilday, timestart, timeend, venue, allweeks
+
+
+def p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks):
+    c = Calendar()
+
     i = 0
     for i in range(len(allweeks)):
 
@@ -37,32 +51,21 @@ def p2cal(c, weekbef):
     return c
 
 
-#s = input("First day of class (DDMMYYYY): ")
-s = "09082021"
-startofclass = datetime.datetime.strptime(s, '%d%m%Y')
-weekbef = startofclass+relativedelta(weeks=-1)
+if __name__ == "__main__":
+    #s = input("First day of class (DDMMYYYY): ")
+    s = "09082021"
+    startofclass = datetime.datetime.strptime(s, '%d%m%Y')
+    weekbef = startofclass+relativedelta(weeks=-1)
 
-with open("sample.txt", "r") as myfile:
-    val = myfile.read()
+    with open("sample.txt", "r") as myfile:
+        val = myfile.read()
 
-valsplit = splitall(val)
-course, title, ctype, group, day, time, venue, weeks = getsplits(valsplit)
-topop = checkdel(weeks)
-course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
-timestart, timeend = cleantime(time)
-allweeks = cleanweeks(weeks)
+    course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(val)
 
-utilday = []
+    ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
 
-j = 0
-for j in range(len(day)):
-    utilday.append(cleanday(day[j]))
-
-c = Calendar()
-ical = p2cal(c, weekbef)
-
-with open('my.ics', 'w') as my_file:
-    my_file.writelines(ical)
+    with open('my.ics', 'w') as my_file:
+        my_file.writelines(ical)
 
 
 '''
