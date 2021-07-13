@@ -6,6 +6,11 @@ from dateutil.relativedelta import *
 from helper import *
 
 
+def minusweek(startofclass):
+    weekbef = startofclass+relativedelta(weeks=-1)
+    return weekbef
+
+
 def splitfunc(val):
     valsplit = splitall(val)
     course, title, ctype, group, day, time, venue, weeks = getsplits(valsplit)
@@ -56,7 +61,7 @@ if __name__ == "__main__":
     #s = input("First day of class (DDMMYYYY): ")
     s = "09082021"
     startofclass = datetime.datetime.strptime(s, '%d%m%Y')
-    weekbef = startofclass+relativedelta(weeks=-1)
+    weekbef = minusweek(startofclass)
 
     with open("sample.txt", "r") as myfile:
         val = myfile.read()
