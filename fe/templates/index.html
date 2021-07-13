@@ -8,29 +8,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <style>
-    .navbar {
-      background-color: rgb(75, 75, 75);
-      position: fixed;
-      top: 0%;
-      width: 100%;
-    }
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='style.css') }}">
     
-    .navbar a {
-      text-align: center;
-      padding: 5px 5px;
-      
-    }
-
-    .main {
-      margin-top: 80px;
-      text-align: center;
-    }
-
-    .container-fluid {
-    max-width:1150px;
-    }
-  </style>
   </head>
   <body style="background-color:rgb(25, 25, 25);">
     
@@ -94,7 +73,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     <!-- Optional JavaScript -->
-    <script src="{{ url_for('static', filename="js/testscript.js")}}"></script>
+    <script src="{{ url_for('static', filename="testscript.js")}}"></script>
     
   </body>
 </html>
