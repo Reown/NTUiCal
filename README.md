@@ -6,16 +6,7 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
  - Semester's table data from ['Check/Print Courses Registered'](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
 
 ## Usage -WIP-
-Depending on how technically inclined you are, there will be several ways for you to obtain the .ics file
 
-1. Running the base script
-    - Create 
-    - Input
-
-2. WIP
-    - WIP
-
-3. TGB
 
 ## Supported Edge Cases
 - [x] Exempted Modules
