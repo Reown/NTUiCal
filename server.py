@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from flask import Flask, render_template, request
 app = Flask(__name__)
@@ -17,4 +18,5 @@ def parse():
 def calview():
     return render_template('calview.html')
 if __name__ == '__main__':
-  app.run(debug=True)
+  port = int(os.environ.get('PORT', 5000))
+  app.run(debug=True, port=port)
