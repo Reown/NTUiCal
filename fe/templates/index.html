@@ -33,15 +33,15 @@
       <p class="text-light">Script to parse data from 'Check/Print Courses Registered' to ICS </pclass>
     </div>
 
-  <br>
+    <br>
 
     <div class="container-fluid">
       <form action="#" method="post">
         <label class="text-light">1. Enter Semester Start Date: </label>
-        <input type="date" name="getdate" class="form-control">
+        <input type="date" name="getdate" class="form-control" required="">
         <br>
         <label class="text-light">2. Paste 'Check/Print Courses Registered' Table Info:</label>
-        <textarea class="form-control" rows="7" name="sourcetxt"></textarea>
+        <textarea class="form-control" rows="7" name="sourcetxt" required=""></textarea>
         <br>
         <input type="submit" value="Parse" class="btn btn-light btn-block">
       </form>
