@@ -1,21 +1,22 @@
 .navbar {
-    background-color: rgb(75, 75, 75);
-    position: fixed;
-    top: 0%;
-    width: 100%;
-  }
+  background-color: rgb(75, 75, 75);
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  z-index: 99;
+}
   
-  .navbar a {
-    text-align: center;
-    padding: 5px 5px;
+.navbar a {
+  text-align: center;
+  padding: 5px 5px;
     
-  }
+}
 
-  .main {
-    margin-top: 80px;
-    text-align: center;
-  }
+.main {
+  margin-top: 80px;
+  text-align: center;
+}
 
-  .container-fluid {
+.container-fluid {
   max-width:1150px;
-  }
+}
