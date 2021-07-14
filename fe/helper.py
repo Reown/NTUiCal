@@ -15,13 +15,15 @@ def getsplits(valsplit):
     weeks = []
 
     k = 0
-    for k in range(0, len(cc), 1):
+    for k in range(len(cc)):
         if(k == 0):
             course.append(cc[k][0])
+
         else:
             if(len(cc[k]) > 3):
                 course.append(cc[k][2])
                 weeks.append(cc[k][1])
+
             else:
                 course.append("")
                 weeks.append(cc[k][1])
@@ -52,7 +54,7 @@ def cleantime(time):
     timeend = []
 
     k = 0
-    for k in range(0, len(time), 1):
+    for k in range(len(time)):
         starttemp1 = time[k][0] + time[k][1]
         starttemp2 = time[k][2] + time[k][3]
         timestart.append([starttemp1, starttemp2])
@@ -68,7 +70,7 @@ def cleanweeks(weeks):
     allweeks = []
 
     k = 0
-    for k in range(0, len(weeks), 1):
+    for k in range(len(weeks)):
         if "," in(weeks[k][2:]):
             temp = weeks[k][2:].split(",")
             allweeks.append(temp)
@@ -87,14 +89,25 @@ def cleanweeks(weeks):
     return allweeks
 
 
-def cleanday(day):
+def intday(day):
     return {
         "MON ": 0,
         "TUE ": 1,
         "WED ": 2,
         "THU ": 3,
-        "FRI ": 4
+        "FRI ": 4,
+        "SAT ": 5
     }.get(day, "invalid")
+
+
+def cleanday(day):
+    utilday = []
+
+    j = 0
+    for j in range(len(day)):
+        utilday.append(intday(day[j]))
+
+    return utilday
 
 
 def checkdel(weeks):
@@ -108,6 +121,7 @@ def checkdel(weeks):
             topop.append(j)
 
     topop.sort(reverse = True)
+    
     return topop
 
 
