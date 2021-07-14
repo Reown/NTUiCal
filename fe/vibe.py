@@ -63,7 +63,7 @@ if __name__ == "__main__":
     startofclass = datetime.datetime.strptime(s, '%d%m%Y')
     weekbef = minusweek(startofclass)
 
-    with open("sample.txt", "r") as myfile:
+    with open("fe/sample.txt", "r") as myfile:
         val = myfile.read()
 
     course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(val)

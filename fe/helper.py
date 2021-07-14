@@ -8,7 +8,7 @@ def getsplits(valsplit):
 
     j = 0
     for j in range(0, len(valsplit), 14):
-        temp = valsplit[j].replace("\n", " ")
+        temp = valsplit[j].replace("\r\n", " ").replace("\n", " ")
         cc.append(temp.split(" "))
 
     course = []
