@@ -126,7 +126,6 @@ def checkdel(weeks):
 
 
 def popall(course, title, ctype, group, day, time, venue, weeks, topop):
-    
     i = 0
     for i in range(len(topop)):
         course.pop(topop[i])
