@@ -14,8 +14,15 @@ def index():
 def parse():
     testdata = request.form['sourcetxt']
     getdate = request.form['getdate2']
-    ss = datetime.strptime(getdate, '%d/%m/%Y')
-    print(ss)
+    
+    ss = datetime.datetime.strptime(getdate, '%d/%m/%Y')
+    weekbef = minusweek(ss)
+    course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(testdata)
+    ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
+
+    with open('my.ics', 'w') as my_file:
+        my_file.writelines(ical)
+        
     return render_template('index.html', data=testdata, data2=getdate)
 
 @app.route('/cal')
