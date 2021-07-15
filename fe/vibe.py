@@ -67,7 +67,7 @@ if __name__ == "__main__":
     startofclass = datetime.datetime.strptime(s, '%d%m%Y')
     weekbef = minusweek(startofclass)
 
-    with open("fe/sample.txt", "r") as myfile:
+    with open("fe/txt/sample.txt", "r") as myfile:
         val = myfile.read()
 
     valsplit = splitraw(val)
