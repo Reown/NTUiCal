@@ -24,7 +24,7 @@ def parse():
     if((len(valsplit) - 1) % 14 != 0 or len(valsplit) == 1):
         return "exception", 500
 
-    path = "/tmp/my.ics"
+    path = "my.ics"
 
     with open(path, 'w') as my_file:
         my_file.writelines(ical)
