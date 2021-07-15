@@ -5,7 +5,6 @@ from vibe import *
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -39,8 +38,8 @@ def calview():
 
 @app.route('/cal', methods = ['POST'])
 def download():
-
     return send_file("my.ics", as_attachment=True)
+
 @app.errorhandler(Exception)
 def server_error(err):
     app.logger.exception(err)
