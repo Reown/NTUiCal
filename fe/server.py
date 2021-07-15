@@ -24,10 +24,11 @@ def parse():
     if((len(valsplit) - 1) % 14 != 0 or len(valsplit) == 1):
         return "exception", 500
 
-    with open('fe/my.ics', 'w') as my_file:
+    path = "/tmp/my.ics"
+
+    with open(path, 'w') as my_file:
         my_file.writelines(ical)
 
-    path = "my.ics"
     return send_file(path, as_attachment=True)
 
 @app.route('/cal')
