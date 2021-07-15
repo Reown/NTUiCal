@@ -11,8 +11,12 @@ def minusweek(startofclass):
     return weekbef
 
 
-def splitfunc(val):
+def splitraw(val):
     valsplit = splitall(val)
+    return valsplit
+
+
+def splitfunc(valsplit):
     course, title, ctype, group, day, time, venue, weeks = getsplits(valsplit)
     topop = checkdel(weeks)
     course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
@@ -63,10 +67,11 @@ if __name__ == "__main__":
     startofclass = datetime.datetime.strptime(s, '%d%m%Y')
     weekbef = minusweek(startofclass)
 
-    with open("fe/sample2.txt", "r") as myfile:
+    with open("fe/sample.txt", "r") as myfile:
         val = myfile.read()
 
-    course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(val)
+    valsplit = splitraw(val)
+    course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
     ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
 
     with open('my.ics', 'w') as my_file:
