@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request, send_file
+from werkzeug.utils import send_from_directory
 from vibe import *
 
 app = Flask(__name__)
@@ -29,12 +30,17 @@ def parse():
     with open(path, 'w') as my_file:
         my_file.writelines(ical)
 
-    return send_file(path, as_attachment=True)
+    return render_template('calview.html', filename=path)
+    #return send_file(path, as_attachment=True)
 
 @app.route('/cal')
 def calview():
     return render_template('calview.html')
 
+@app.route('/cal', methods = ['POST'])
+def download():
+
+    return send_file("my.ics", as_attachment=True)
 @app.errorhandler(Exception)
 def server_error(err):
     app.logger.exception(err)
