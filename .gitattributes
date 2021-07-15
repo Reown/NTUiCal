@@ -1,2 +1,2 @@
-fe/static/fullcal.js linguist-vendored=false
-fe/static/fullcal.css linguist-vendored=false
+fe/static/fullcal.js -linguist-detectable
+fe/static/fullcal.css -linguist-detectable
