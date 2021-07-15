@@ -84,7 +84,7 @@ def cleanweeks(weeks):
 
         else:
             temp = weeks[k][2:]
-            allweeks.append(temp)
+            allweeks.append([temp])
 
     return allweeks
 
