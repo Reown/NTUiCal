@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='fullcal.css') }}">
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='style.css') }}">
   
   </head>
@@ -41,7 +42,7 @@
     <br>
 
     <div class="container-fluid">
-      <form action="/" method="post">
+      <form action="/cal" method="post">
         <label class="text-light">1. Enter Semester Start Date: </label>
         <input id="datepicker" width="276" class="readonly form-control" name="getdate2" autocomplete="off" required>
         <br>
@@ -85,6 +86,7 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 
     <!-- Optional JavaScript -->
+    <script src="{{ url_for('static', filename='fullcal.js')}}"></script>
     <script src="{{ url_for('static', filename='testscript.js')}}"></script>
     
   </body>

@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='style.css') }}">
 
   </head>
-  <body style="background-color:rgb(225, 252, 252);">
+  <body style="background-color:rgb(255, 255, 255);">
     
     <nav class="navbar navbar-expand-sm navbar-light bg-faded">
       <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
@@ -40,7 +40,7 @@
     <br>
 
     <div class="container-fluid">
-      <form action="/cal" method="post">
+      <form action="/cal/dl" method="post">
         <input type="submit" value="Download" class="btn btn-light btn-block">
       </form>
     </div>
@@ -62,16 +62,6 @@
     <!-- Optional JavaScript -->
     <script src="{{ url_for('static', filename='fullcal.js')}}"></script>
     <script src="{{ url_for('static', filename='testscript.js')}}"></script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-        });
-        calendar.render();
-      });
-    </script>
     
   </body>
 </html>

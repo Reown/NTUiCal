@@ -10,9 +10,18 @@ function parse(){
 $('#datepicker').datepicker({
     uiLibrary: 'bootstrap4',
     format: "dd/mm/yyyy"
-  });
+});
 
 $(".readonly").on('keydown paste focus mousedown', function(e){
     if(e.keyCode != 9) // ignore tab
     e.preventDefault();
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+    });
+    calendar.render();
+  });

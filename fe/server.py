@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/', methods = ['POST'])
+@app.route('/cal', methods = ['POST'])
 def parse():
     testdata = request.form['sourcetxt']
     getdate = request.form['getdate2']
@@ -36,7 +36,7 @@ def parse():
 def calview():
     return render_template('calview.html')
 
-@app.route('/cal', methods = ['POST'])
+@app.route('/cal/dl', methods = ['POST'])
 def download():
     return send_file("my.ics", as_attachment=True)
 
