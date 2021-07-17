@@ -10,6 +10,10 @@ path = "my.ics"
 def index():
     return render_template('index.html')
 
+@app.route('/cal')
+def calview():
+    return render_template('calview.html')
+
 @app.route('/cal', methods = ['POST'])
 def parse():
     testdata = request.form['sourcetxt']
@@ -31,23 +35,19 @@ def parse():
     return render_template('calview.html', filename=path)
     #return send_file(path, as_attachment=True)
 
-@app.route('/cal')
-def calview():
-    return render_template('calview.html')
-
-@app.route('/cal', methods = ['POST'])
+@app.route('/cal/download', methods = ['POST'])
 def download():
     return send_file(path, as_attachment=True)
-
-@app.errorhandler(Exception)
-def server_error(err):
-    app.logger.exception(err)
-    return "exception", 500
 
 @app.route('/data')
 def return_data():
     with open("fe/static/events.json", "r") as input_data:
         return input_data.read()
+
+@app.errorhandler(Exception)
+def server_error(err):
+    app.logger.exception(err)
+    return "exception", 500
 
 if __name__ == '__main__':
   app.run(debug=True)
