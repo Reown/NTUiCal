@@ -1,9 +1,10 @@
 from datetime import datetime
-from flask import Flask, render_template, request, send_file
-from werkzeug.utils import send_from_directory
+from flask import Flask, render_template, request, send_file, send_from_directory
 from vibe import *
 
 app = Flask(__name__)
+
+path = "my.ics"
 
 @app.route('/')
 def index():
@@ -24,8 +25,6 @@ def parse():
     if((len(valsplit) - 1) % 14 != 0 or len(valsplit) == 1):
         return "exception", 500
 
-    path = "my.ics"
-
     with open(path, 'w') as my_file:
         my_file.writelines(ical)
 
@@ -36,14 +35,19 @@ def parse():
 def calview():
     return render_template('calview.html')
 
-@app.route('/cal/dl', methods = ['POST'])
+@app.route('/cal', methods = ['POST'])
 def download():
-    return send_file("my.ics", as_attachment=True)
+    return send_file(path, as_attachment=True)
 
 @app.errorhandler(Exception)
 def server_error(err):
     app.logger.exception(err)
     return "exception", 500
+
+@app.route('/data')
+def return_data():
+    with open("fe/static/events.json", "r") as input_data:
+        return input_data.read()
 
 if __name__ == '__main__':
   app.run(debug=True)
