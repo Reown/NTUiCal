@@ -23,13 +23,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 
       displayEventTime: true,
       displayEventEnd: true,
-      events: {
-          url: 'data',
-      },
+      slotMinTime: '08:00:00',
+      slotMaxTime: '23:30:00',
+      slotDuration: '00:30:00',
+      timeZone: 'local',
+      //events: {
+      //    url: 'data',
+      //},
+      events: '/fe/static/events.json',
       eventTimeFormat: {
         hour: 'numeric',
         minute: '2-digit',
         meridiem: 'short'
+      },
+      views: {
+        dayGridMonth: {
+          dayHeaderFormat: {weekday: 'short'},
+          displayEventTime: false,
+          displayEventEnd: false,
+          eventContent: function(info){
+          return info.event.title
+            }
+          }
+      },
+      eventClick: function(info){ 
+          alert('ID: '+ info.event.id + info.event.extendedProps.description); 
       },
     });
     calendar.render();
