@@ -12,10 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
+      themeSystem: 'standard',
       hiddenDays: [0],
       dayHeaderFormat: {weekday: 'short', day: 'numeric'
         },
       allDaySlot: false,
+      fixedWeekCount: false,
       headerToolbar: {
         left: 'dayGridMonth,timeGridWeek',
         center: 'title',
@@ -24,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
       displayEventTime: true,
       displayEventEnd: true,
       slotMinTime: '08:00:00',
-      slotMaxTime: '23:30:00',
-      slotDuration: '00:30:00',
+      slotMaxTime: '24:00:00',
+      slotDuration: '00:20:00',
       timeZone: 'local',
       /*events: { //flask
           url: 'data',
@@ -41,9 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
           dayHeaderFormat: {weekday: 'short'},
           displayEventTime: false,
           displayEventEnd: false,
+          /*
           eventContent: function(info){
           return info.event.title
-            }
+            }*/
           }
       },
       eventClick: function(info){ 
