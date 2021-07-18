@@ -33,11 +33,11 @@ def parse():
         my_file.writelines(ical)
 
     return render_template('calview.html', filename=path)
-    #return send_file(path, as_attachment=True)
 
 @app.route('/cal/download', methods = ['POST'])
 def download():
     return send_file(path, as_attachment=True)
+    #return send_from_directory("static", "events.json")
 
 @app.route('/data')
 def return_data():
