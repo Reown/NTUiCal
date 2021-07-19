@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
       initialView: 'dayGridMonth',
       themeSystem: 'standard',
       hiddenDays: [0],
-      dayHeaderFormat: {weekday: 'short', day: 'numeric'
-        },
       allDaySlot: false,
       fixedWeekCount: false,
       headerToolbar: {
@@ -32,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       events: { //flask
           url: 'data',
       },
-      //events: '/fe/static/events.json', //local
+      //events: '/fe/static/my.json', //local
       eventTimeFormat: {
         hour: 'numeric',
         minute: '2-digit',
@@ -40,14 +38,21 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       views: {
         dayGridMonth: {
-          dayHeaderFormat: {weekday: 'short'},
-          displayEventTime: false,
+          dayHeaderFormat: {
+            weekday: 'short'
+          },
+          displayEventTime: true,
           displayEventEnd: false,
-          /*
+        },
+        timeGridWeek: {
+          dayHeaderFormat: {
+            weekday: 'short', day: 'numeric'
+          },
           eventContent: function(info){
-          return info.event.title
-            }*/
-          }
+            
+            return info.event.title
+          },
+        }
       },
       eventClick: function(info){ 
           alert('ID: '+ info.event.id + info.event.extendedProps.description); 

@@ -27,3 +27,7 @@
   background-color: #fff;
   color: #000;
 }
+
+.fc-time-grid, .fc-slats, .fc-minor, td {
+	border-top-style: none !important;
+}
