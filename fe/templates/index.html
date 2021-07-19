@@ -10,56 +10,50 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css">
+    <link href="https://bootswatch.com/5/darkly/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='style.css') }}">
-  
+
   </head>
-  <body style="background-color:rgb(25, 25, 25);">
+  <body>
     
-    <nav class="navbar navbar-expand-sm navbar-light bg-faded">
-      <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
-        <a class="navbar-brand text-light">NTUiCal</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse text-center" id="navbarsExample11">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link text-light" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" href="/cal">Calendar View</a>
-            </li>
-          </ul>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">NTUiCal</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active" href="/cal">Calendar View</a>
+          </li>
+        </ul>
       </div>
     </nav>
     
     <div class="main container-fluid">
-      <h1 class="text-light">NTUiCal</h1>
-      <p class="text-light">Script to parse data from 'Check/Print Courses Registered' to ICS </pclass>
+      <h1 class="text">NTUiCal</h1>
+      <p class="text">Script to parse data from 'Check/Print Courses Registered' to ICS </pclass>
     </div>
 
     <br>
 
     <div class="container-fluid">
       <form action="/cal" method="post">
-        <label class="text-light">1. Enter Semester Start Date: </label>
+        <label class="text">1. Enter Semester Start Date: </label>
         <input id="datepicker" width="276" class="readonly form-control" name="getdate2" autocomplete="off" required>
         <br>
-        <label class="text-light">2. Paste 'Check/Print Courses Registered' Table Info:</label>
+        <label class="text">2. Paste 'Check/Print Courses Registered' Table Info:</label>
         <textarea class="form-control" rows="7" name="sourcetxt" required=""></textarea>
         <br>
-        <input type="submit" value="Parse" class="btn btn-light btn-block">
+        <input type="submit" value="Parse" class="btn btn-primary btn-block">
       </form>
     </div>
 
-    </br>
+    <br>
 
     <footer>
-      <div class="container text-center text-md-left footer">
-        <div class="row text-center text-md-left mt-3 pb-3">
-          <p class="text-center text-md-left text-light">Source Code: <a href="https://github.com/Reown/NTUiCal">https://github.com/Reown/NTUiCal</a></p>
-        </div>
+      <div id="footer" class="container-fluid">
+        <p class="text-muted">Source Code: <a href="https://github.com/Reown/NTUiCal">https://github.com/Reown/NTUiCal</a></p>
       </div>
     </footer>
 

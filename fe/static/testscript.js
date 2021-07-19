@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
       slotMaxTime: '24:00:00',
       slotDuration: '00:20:00',
       timeZone: 'local',
-      /*events: { //flask
+      events: { //flask
           url: 'data',
-      }, */
-      events: '/fe/static/events.json', //local
+      },
+      //events: '/fe/static/events.json', //local
       eventTimeFormat: {
         hour: 'numeric',
         minute: '2-digit',
