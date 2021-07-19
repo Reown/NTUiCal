@@ -1,5 +1,3 @@
-import numpy
-import re
 import datetime
 import os
 import sys
