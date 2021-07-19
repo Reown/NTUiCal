@@ -1,10 +1,12 @@
 from datetime import datetime
 from flask import Flask, render_template, request, send_file, send_from_directory
 from vibe import *
+from genjson import *
 
 app = Flask(__name__)
 
 path = "my.ics"
+test = "my.json"
 
 @app.route('/')
 def index():
@@ -32,7 +34,12 @@ def parse():
     with open(path, 'w') as my_file:
         my_file.writelines(ical)
 
-    return render_template('calview.html', filename=path)
+    output_file = valid_check(path)
+    calendar_data = read_file(path)
+    vevents = get_events(calendar_data)
+    save_json(vevents, output_file)
+
+    return render_template('calview.html')
 
 @app.route('/cal/download', methods = ['POST'])
 def download():
@@ -41,7 +48,7 @@ def download():
 
 @app.route('/data')
 def return_data():
-    with open("fe/static/events.json", "r") as input_data:
+    with open(test, "r") as input_data:
         return input_data.read()
 
 @app.errorhandler(Exception)

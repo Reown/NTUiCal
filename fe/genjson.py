@@ -40,7 +40,7 @@ def get_events(calendar_data):
     return vevents
 
 
-def save_json(vevents):
+def save_json(vevents, output_file):
     print("Saving json at '" + output_file + "'")
     with open(output_file, "w") as o_f:
         json.dump(vevents, o_f, indent = 4)
@@ -55,4 +55,4 @@ if __name__ == "__main__":
     output_file = valid_check(sys.argv[1])
     calendar_data = read_file(sys.argv[1])
     vevents = get_events(calendar_data)
-    save_json(vevents)
+    save_json(vevents, output_file)
