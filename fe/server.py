@@ -5,8 +5,8 @@ from genjson import *
 
 app = Flask(__name__)
 
-path = "my.ics"
-test = "my.json"
+icspath = "my.ics"
+jsonpath = "my.json"
 
 @app.route('/')
 def index():
@@ -18,24 +18,24 @@ def calview():
 
 @app.route('/cal', methods = ['POST'])
 def parse():
-    testdata = request.form['sourcetxt']
     getdate = request.form['getdate2']
-
+    getsource = request.form['sourcetxt']
+    
     ss = datetime.datetime.strptime(getdate, '%d/%m/%Y')
     weekbef = minusweek(ss)
 
-    valsplit = splitraw(testdata)
+    valsplit = splitraw(getsource)
     course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
     ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
     
     if((len(valsplit) - 1) % 14 != 0 or len(valsplit) == 1):
         return "exception", 500
 
-    with open(path, 'w') as my_file:
+    with open(icspath, 'w') as my_file:
         my_file.writelines(ical)
 
-    output_file = valid_check(path)
-    calendar_data = read_file(path)
+    output_file = valid_check(icspath)
+    calendar_data = read_file(icspath)
     vevents = get_events(calendar_data)
     save_json(vevents, output_file)
 
@@ -43,12 +43,12 @@ def parse():
 
 @app.route('/cal/download', methods = ['POST'])
 def download():
-    return send_file(path, as_attachment=True)
+    return send_file(icspath, as_attachment=True)
     #return send_from_directory("static", "events.json")
 
 @app.route('/data')
 def return_data():
-    with open(test, "r") as input_data:
+    with open(jsonpath, "r") as input_data:
         return input_data.read()
 
 @app.errorhandler(Exception)
