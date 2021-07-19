@@ -1,6 +1,8 @@
 import numpy
 import re
 import datetime
+import os
+import sys
 from ics import Calendar, Event
 from dateutil.relativedelta import *
 from helper import *
@@ -61,21 +63,32 @@ def p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, ven
     return c
 
 
+def save_ics(ical, out_file):
+    with open(out_file, 'w') as my_file:
+        my_file.writelines(ical)
+
 if __name__ == "__main__":
-    #s = input("First day of class (DDMMYYYY): ")
-    s = "09082021"
+
+    if len(sys.argv) != 2:
+        print("Invalid Arguments")
+        exit(1)
+
+    s = input("First day of class (DDMMYYYY): ")
+    #s = "09082021"
+
     startofclass = datetime.datetime.strptime(s, '%d%m%Y')
     weekbef = minusweek(startofclass)
 
-    with open("fe/txt/sample.txt", "r") as myfile:
+    with open(sys.argv[1], "r") as myfile:
         val = myfile.read()
+
+    base, ext = os.path.splitext(sys.argv[1])
+    out_file = base + ".ics"
 
     valsplit = splitraw(val)
     course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
     ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
-
-    with open('my.ics', 'w') as my_file:
-        my_file.writelines(ical)
+    save_ics(ical, out_file)
 
 
 '''
