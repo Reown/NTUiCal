@@ -1,5 +1,7 @@
+import os
+import random
 from datetime import datetime
-from flask import Flask, render_template, request, send_file, send_from_directory
+from flask import Flask, render_template, request, send_file, send_from_directory, session
 from vibe import *
 from genjson import *
 
@@ -7,9 +9,14 @@ app = Flask(__name__)
 
 icspath = "my.ics"
 jsonpath = "my.json"
+app.secret_key = "ggg"
 
 @app.route('/')
 def index():
+    n = random.randint(0,100)
+    print(session.get('uid', 'not set'))
+    session['uid']='session#' + str(n) 
+    print(session.get('uid', 'not set'))
     return render_template('index.html')
 
 @app.route('/cal')
