@@ -1,5 +1,5 @@
 import os
-import random
+import uuid
 from datetime import datetime
 from flask import Flask, render_template, request, send_file, send_from_directory, session
 from vibe import *
@@ -9,13 +9,13 @@ app = Flask(__name__)
 
 icspath = "my.ics"
 jsonpath = "my.json"
-app.secret_key = "ggg"
+app.secret_key = "onprod"
+#app.secret_key = os.getenv('SECRET_KEY', 'onprod')
 
 @app.route('/')
 def index():
-    n = random.randint(0,100)
     print(session.get('uid', 'not set'))
-    session['uid']='session#' + str(n) 
+    session['uid']=uuid.uuid4()
     print(session.get('uid', 'not set'))
     return render_template('index.html')
 
