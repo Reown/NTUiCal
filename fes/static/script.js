@@ -20,22 +20,24 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 'dayGridMonth,timeGridWeek',
         center: 'title',
         right: 'today prev,next'
-        }, 
+      },
       displayEventTime: true,
       displayEventEnd: true,
       slotMinTime: '08:00:00',
       slotMaxTime: '24:00:00',
-      slotDuration: '00:20:00',
-      timeZone: 'local',
-      events: { //flask
-          url: 'data',
-      },
-      //events: '/fe/static/my.json', //local
-      eventTimeFormat: {
-        hour: 'numeric',
+      slotDuration: '00:15:00',
+      slotLabelFormat: [
+      {
+        hour: '2-digit',
         minute: '2-digit',
-        meridiem: 'short'
-      },
+        hour12: false
+      }],
+      timeZone: 'local',
+      html: true,
+      /*events: { //flask
+          url: 'data',
+      },*/
+      events: '/fes/static/my.json', //local
       views: {
         dayGridMonth: {
           dayHeaderFormat: {
@@ -43,21 +45,40 @@ document.addEventListener('DOMContentLoaded', function() {
           },
           displayEventTime: true,
           displayEventEnd: false,
+          eventTimeFormat: { 
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          },
+          eventContent: function(info){
+            temp = this.eventContent
+            return temp
+          },
+          eventClick: function(info){ 
+            alert('ID: '+ info.event.id + info.event.extendedProps.description); 
+          },
         },
         timeGridWeek: {
           dayHeaderFormat: {
             weekday: 'short', day: 'numeric'
           },
           eventContent: function(info){
-            
-            return info.event.title
+            startwci1 = info.event.start.getHours()
+            startwci2 = info.event.start.getMinutes()
+
+            endwci1 = info.event.end.getHours()
+            endwci2 = info.event.end.getMinutes()
+
+            titlewci = info.event.title
+            descwci = info.event.extendedProps.description.split("\n")
+            locawci = info.event.extendedProps.location
+
+            finalwci = startwci1 + ':' + startwci2 + ' - ' + endwci1 + ':' + endwci2 + '<br>' + titlewci + ' ' + descwci[1] + '<br>' + locawci + '<br>' + descwci[0]
+            return { html: finalwci }
           },
         }
-      },
-      eventClick: function(info){ 
-          alert('ID: '+ info.event.id + info.event.extendedProps.description); 
       },
     });
     calendar.render();
     document.calendar = calendar;
-  });
+});
