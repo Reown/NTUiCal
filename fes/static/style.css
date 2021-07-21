@@ -35,3 +35,7 @@
 .fc-time-grid, .fc-slats, .fc-minor, td {
 	border-top-style: none !important;
 }
+
+.fc-event {
+  font-size: 0.8em;
+}
