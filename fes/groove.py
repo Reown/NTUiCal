@@ -23,6 +23,19 @@ def read_file(path):
     return calendar_data
 
 
+def get_colour(title_list):
+    return {
+        title_list[0]: "maroon",
+        title_list[1]: "olive",
+        title_list[2]: "green",
+        title_list[3]: "teal",
+        title_list[4]: "navy",
+        title_list[5]: "purple",
+        title_list[6]: "#5C3317",
+        title_list[7]: "#838996",
+    }.get(title_list, " ")
+
+
 def get_events(calendar_data):
     vevents = []
 
