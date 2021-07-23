@@ -67,25 +67,34 @@ def save_ics(ical, out_file):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print("Invalid Arguments")
         exit(1)
 
-    s = input("First day of class (DDMMYYYY): ")
+    #s = input("First day of class (DDMMYYYY): ")
     #s = "09082021"
 
-    startofclass = datetime.datetime.strptime(s, '%d%m%Y')
+    base, ext = os.path.splitext(sys.argv[1])
+    if ext.lower() != (".txt"):
+        print("This script only works for '.txt' format")
+        exit(1)
+
+    try:
+        s = sys.argv[2]
+        startofclass = datetime.datetime.strptime(s, '%d%m%Y')
+    except:
+        print("Please follow the 'DDMMYYYY' format")
+        exit(1)
+
     weekbef = minusweek(startofclass)
 
     with open(sys.argv[1], "r") as myfile:
         val = myfile.read()
 
-    base, ext = os.path.splitext(sys.argv[1])
-    out_file = base + ".ics"
-
     valsplit = splitraw(val)
     course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
     ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
+    out_file = base + ".ics"
     save_ics(ical, out_file)
 
 
