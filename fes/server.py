@@ -6,17 +6,12 @@ from vibe import *
 from groove import *
 
 app = Flask(__name__)
-
-icspath = "my.ics"
-jsonpath = "my.json"
-app.secret_key = "onprod"
-#app.secret_key = os.getenv('SECRET_KEY', 'onprod')
+app.secret_key = "onprod" #local
+#app.secret_key = os.getenv('SECRET_KEY', 'onprod') #heroku
 
 @app.route('/')
 def index():
-    print(session.get('uid', 'not set'))
     session['uid']=uuid.uuid4()
-    print(session.get('uid', 'not set'))
     return render_template('index.html')
 
 @app.route('/cal')
@@ -28,6 +23,9 @@ def parse():
     getdate = request.form['getdate2']
     getsource = request.form['sourcetxt']
     
+    icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
+    #icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
+
     ss = datetime.datetime.strptime(getdate, '%d/%m/%Y')
     weekbef = minusweek(ss)
 
@@ -51,11 +49,15 @@ def parse():
 
 @app.route('/cal/download', methods = ['POST'])
 def download():
+    icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
+    #icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
     return send_file(icspath, as_attachment=True)
     #return send_from_directory("static", "events.json")
 
 @app.route('/data')
 def return_data():
+    jsonpath = (str(session['uid']).split("-"))[0] + ".json" #local
+    #sonpath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".json" #heroku
     with open(jsonpath, "r") as input_data:
         return input_data.read()
 
