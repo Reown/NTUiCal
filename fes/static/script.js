@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             titlemec = info.event.title
             descmec = info.event.extendedProps.description.split("\n")
             locamec = info.event.extendedProps.location
-            alert('ID: '+ startmec1 + ':' + startmec2 + ' - ' + endmec1 + ':' + endmec2 + '\n' + titlemec + '\t' + descmec[1] + '\n' + locamec + '\n' + descmec[0]); 
+            alert(startmec1 + ':' + startmec2 + ' - ' + endmec1 + ':' + endmec2 + '\n' + titlemec + '\t' + descmec[1] + '\n' + locamec + '\n' + descmec[0]); 
           },
         },
         timeGridWeek: {
