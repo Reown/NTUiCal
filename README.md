@@ -17,12 +17,12 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 ### __OR__
 ### 2. Executing the [vibe.py](https://github.com/Reown/NTUiCal/blob/prod/fes/vibe.py) script locally
 - Create a ```.txt``` file that stores the table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2) 
-<details>
-<summary>Example</summary>
-<br>
-![example pic](https://raw.github.com/adam-p/markdown-here/master/store-assets/markdown-here-image1.gimp.png)
-</details>
-
+    <details>
+    <summary>Example</summary>
+    <br>
+    only copy the contents enclosed in the red box
+    ![example_pic](./images/example_pic.png)
+    </details>
 - Run script (2 arguements)
     ```
     python vibe.py <txtFile> <DDMMYYYY>
