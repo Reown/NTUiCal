@@ -43,7 +43,8 @@ def parse():
 
     output_file = valid_check(icspath)
     calendar_data = read_file(icspath)
-    vevents = get_events(calendar_data)
+    course_list = get_course(course)
+    vevents = get_events(course_list, calendar_data)
     save_json(vevents, output_file)
 
     return render_template('calview.html')

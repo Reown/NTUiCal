@@ -23,20 +23,18 @@ def read_file(path):
     return calendar_data
 
 
-def get_colour(title_list):
-    return {
-        title_list[0]: "maroon",
-        title_list[1]: "olive",
-        title_list[2]: "green",
-        title_list[3]: "teal",
-        title_list[4]: "navy",
-        title_list[5]: "purple",
-        title_list[6]: "#5C3317",
-        title_list[7]: "#838996",
-    }.get(title_list, " ")
+def get_colour(course_list, summary):
+    colour_list = ["maroon", "olive", "green", "teal", "navy", "purple", "#5C3317", "#838996", "#413839"]
 
+    k = 0
+    for k in range(len(course_list)):
+        if summary == course_list[k]:
+            return colour_list[k]
 
-def get_events(calendar_data):
+    return ""
+    
+
+def get_events(course_list, calendar_data):
     vevents = []
 
     for component in calendar_data.walk():
@@ -46,7 +44,8 @@ def get_events(calendar_data):
                 "start": component.decoded('dtstart').isoformat(),
                 "end": component.decoded('dtend').isoformat(),
                 "location": component.get('location'),
-                "description": component.get('description')
+                "description": component.get('description'),
+                "color": get_colour(course_list, component.get('summary'))
             }
             vevents.append(temp)
 
@@ -59,6 +58,11 @@ def save_json(vevents, output_file):
         json.dump(vevents, o_f, indent = 4)
 
 
+def get_course(course_list):
+    course_list = list(filter(None, course_list))
+    return course_list
+
+
 if __name__ == "__main__":
 
     if len(sys.argv) != 2:
@@ -67,5 +71,6 @@ if __name__ == "__main__":
     
     output_file = valid_check(sys.argv[1])
     calendar_data = read_file(sys.argv[1])
-    vevents = get_events(calendar_data)
+    course_list = ["placeholder"]
+    vevents = get_events(course_list, calendar_data)
     save_json(vevents, output_file)
