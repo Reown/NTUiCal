@@ -54,7 +54,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return temp
           },
           eventClick: function(info){ 
-            alert('ID: '+ info.event.id + info.event.extendedProps.description); 
+            startmec1 = info.event.start.getHours()
+            startmec2 = info.event.start.getMinutes()
+
+            endmec1 = info.event.end.getHours()
+            endmec2 = info.event.end.getMinutes()
+
+            titlemec = info.event.title
+            descmec = info.event.extendedProps.description.split("\n")
+            locamec = info.event.extendedProps.location
+            alert('ID: '+ startmec1 + ':' + startmec2 + ' - ' + endmec1 + ':' + endmec2 + '\n' + titlemec + '\t' + descmec[1] + '\n' + locamec + '\n' + descmec[0]); 
           },
         },
         timeGridWeek: {
