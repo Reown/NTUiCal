@@ -20,7 +20,6 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
     <details>
     <summary>Example</summary>
     <br>
-    only copy the contents enclosed in the red box
     ![example_pic](./images/example_pic.png)
     </details>
 - Run script (2 arguements)
