@@ -34,10 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }],
       timeZone: 'local',
       html: true,
-      /*events: { //flask
+      events: { //flask
           url: 'data',
-      },*/
-      events: '/fes/static/my.json', //local
+      },
       views: {
         dayGridMonth: {
           dayHeaderFormat: {
