@@ -12,14 +12,22 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 
 # Usage
 
-### 1. test
+### 1. Using the [ntuical-flask.herokuapp.com/](ntuical-flask.herokuapp.com/) site
 - test
 ### __OR__
 ### 2. Executing the [vibe.py](https://github.com/Reown/NTUiCal/blob/prod/fes/vibe.py) script locally
-- 
-- The script takes 1 arguement
-```python vibe.py <txtFile>```
-- 
+- Create a ```.txt``` file that stores the table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2) 
+<details>
+<summary>Example</summary>
+<br>
+![example pic](https://raw.github.com/adam-p/markdown-here/master/store-assets/markdown-here-image1.gimp.png)
+</details>
+
+- Run script (2 arguements)
+    ```
+    python vibe.py <txtFile> <DDMMYYYY>
+    ```
+- The ```.ics``` file will be saved in the same directory as your ```.txt``` with the same name
     
 
 # Supported Edge Cases
