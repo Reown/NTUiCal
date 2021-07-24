@@ -12,18 +12,20 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 
 # Usage
 ### 1. Using the deployed [site](ntuical-flask.herokuapp.com/)
-- Select date of semester's first day (most likely a monday)
+- Select date of semester's first day
     <details>
-    <summary>Date Select Example</summary>
+    <summary>Example</summary>
     <br>
-    <img src="./images/select_date.png">
+    *Monday of Week 1*
+    <img src="./images/get_date.png">
+    <img src="./images/choose_date.png">
     </details>
 - Paste table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
     <details>
     <summary>Example</summary>
     <br>
     *Only copy the contents within the red box*
-    <img src="./images/example_pic.png">
+    <img src="./images/get_data.png">
     <img src="./images/paste_data.png">
     </details>
 - Click ```Parse```
@@ -31,20 +33,18 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 ### __OR__
 
 ### 2. Executing the [vibe.py](https://github.com/Reown/NTUiCal/blob/prod/fes/vibe.py) script locally
+- Clone the repo
+    ```
+    $ git clone https://github.com/Reown/NTUiCal
+    ```
 - Create a ```.txt``` file that stores the table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
-    <details>
-    <summary>Example</summary>
-    <br>
-    *Only copy the contents within the red box*
-    <img src="./images/example_pic.png">
-    </details>
 - Install the required dependencies
     ```
     pip install -r requirements.txt
     ```
 - Run script (2 arguements)
     ```
-    python vibe.py <txtFile> <DDMMYYYY>
+    python fes/vibe.py <txtFile> <DDMMYYYY>
     ```
 - A ```.ics``` file will be saved in the same directory as your ```.txt``` file with the same name
 
