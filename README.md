@@ -38,6 +38,11 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
     $ git clone https://github.com/Reown/NTUiCal
     ```
 - Create a ```.txt``` file that stores the table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
+    <details>
+    <summary>Sample</summary>
+    <br>
+    See <a href ="https://github.com/Reown/NTUiCal/tree/main/samplesource">samplesource</a>
+    </details>
 - Install the required dependencies
     ```
     pip install -r requirements.txt
