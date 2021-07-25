@@ -138,3 +138,14 @@ def popall(course, title, ctype, group, day, time, venue, weeks, topop):
         weeks.pop(topop[i])
 
     return course, title, ctype, group, day, time, venue, weeks
+
+
+def white(title, ctype, group, venue):
+    i = 0
+    for i in range(len(title)):
+        title[i] = title[i][:-1]
+        ctype[i] = ctype[i][:-1]
+        group[i] = group[i][:-1]
+        venue[i] = venue[i][:-1]
+
+    return title, ctype, group, venue
