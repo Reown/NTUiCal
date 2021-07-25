@@ -11,7 +11,7 @@ app.secret_key = "onprod" #local
 
 @app.route('/')
 def index():
-    if session.get('uid') == False:
+    if session.get('uid') is None:
         session['uid']=uuid.uuid4()
     return render_template('index.html')
 
