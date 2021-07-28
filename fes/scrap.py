@@ -1,5 +1,5 @@
-from bs4 import BeautifulSoup
 import codecs
+from bs4 import BeautifulSoup
 from helper import *
 
 raw_html = codecs.open("test.html", 'r').read()
@@ -30,14 +30,22 @@ for i in range(1, len(table_data)):
     day.append(temprow[11])
     time.append(temprow[12])
     venue.append(temprow[13])
-    weeks.append(temprow[14])
+    weeks.append(temprow[14].split(" ")[1])
 
+topop = checkdel(weeks)
+course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
+timestart, timeend = cleantime(time)
+allweeks = cleanweeks(weeks)
+utilday = cleanday(day)
 
+'''
 print(course)
 print(title)
 print(ctype)
 print(group)
-print(day)
-print(time)
+print(utilday)
+print(timestart)
+print(timeend)
 print(venue)
-print(weeks)
+print(allweeks)
+'''
