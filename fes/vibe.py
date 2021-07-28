@@ -22,8 +22,8 @@ def splitfunc(valsplit):
     course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
     timestart, timeend = cleantime(time)
     allweeks = cleanweeks(weeks)
+    title, ctype, group, day, venue = white(title, ctype, group, day, venue)
     utilday = cleanday(day)
-    title, ctype, group, venue = white(title, ctype, group, venue)
 
     return course, title, ctype, group, utilday, timestart, timeend, venue, allweeks
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     out_file = base + ".ics"
     save_ics(ical, out_file)
 
-'''
+
 print(course)
 print(title)
 print(ctype)
@@ -108,4 +108,4 @@ print(timestart)
 print(timeend)
 print(venue)
 print(allweeks)
-'''
+

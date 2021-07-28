@@ -91,12 +91,12 @@ def cleanweeks(weeks):
 
 def intday(day):
     return {
-        "MON ": 0,
-        "TUE ": 1,
-        "WED ": 2,
-        "THU ": 3,
-        "FRI ": 4,
-        "SAT ": 5
+        "MON": 0,
+        "TUE": 1,
+        "WED": 2,
+        "THU": 3,
+        "FRI": 4,
+        "SAT": 5
     }.get(day, "invalid")
 
 
@@ -140,12 +140,13 @@ def popall(course, title, ctype, group, day, time, venue, weeks, topop):
     return course, title, ctype, group, day, time, venue, weeks
 
 
-def white(title, ctype, group, venue):
+def white(title, ctype, group, day, venue):
     i = 0
     for i in range(len(title)):
         title[i] = title[i][:-1]
         ctype[i] = ctype[i][:-1]
         group[i] = group[i][:-1]
+        day[i] = day[i][:-1]
         venue[i] = venue[i][:-1]
 
-    return title, ctype, group, venue
+    return title, ctype, group, day, venue
