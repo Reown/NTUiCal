@@ -27,7 +27,7 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
         <br>
         *Right click > Save Page*
         <img src="./images/get_html.png">
-        <img src="./images/paste_data.png">
+        <img src="./images/upload_html.png">
         </details>
     - __OPTION 2:__ Paste table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
         <details>
