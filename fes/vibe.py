@@ -104,7 +104,7 @@ if __name__ == "__main__":
         
     save_ics(ical, out_file)
 
-
+'''
 print(course)
 print(title)
 print(ctype)
@@ -114,5 +114,5 @@ print(timestart)
 print(timeend)
 print(venue)
 print(allweeks)
-
+'''
 
