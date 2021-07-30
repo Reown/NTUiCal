@@ -20,28 +20,38 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
     <img src="./images/get_date.png">
     <img src="./images/choose_date.png">
     </details>
-- Paste table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
-    <details>
-    <summary>Example</summary>
-    <br>
-    *Only copy the contents within the red box*
-    <img src="./images/get_data.png">
-    <img src="./images/paste_data.png">
-    </details>
+- Either upload a `.html` file or paste data from clipboard
+    - __OPTION 1:__ Upload `.html` file of [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2) __[RECOMMENDED]__
+        <details>
+        <summary>Example</summary>
+        <br>
+        *Right click > Save Page*
+        <img src="./images/get_html.png">
+        <img src="./images/paste_data.png">
+        </details>
+    - __OPTION 2:__ Paste table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
+        <details>
+        <summary>Example</summary>
+        <br>
+        *Only copy the contents within the red box*
+        <img src="./images/get_data.png">
+        <img src="./images/paste_data.png">
+        </details>
 - Click ```Parse```
 
 ### __OR__
 
-### 2. Executing the [vibe.py](https://github.com/Reown/NTUiCal/blob/prod/fes/vibe.py) script locally
+### 2. Executing the [vibe.py](https://github.com/Reown/NTUiCal/blob/main/fes/vibe.py) script locally
 - Clone the repo
     ```
     $ git clone https://github.com/Reown/NTUiCal
     ```
-- Create a ```.txt``` file that stores the table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
+- Save your [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2) either as a `.html` or copied to a `.txt` file
     <details>
-    <summary>Sample</summary>
+    <summary>Example</summary>
+    See <a href ="https://github.com/Reown/NTUiCal/tree/main/samplehtml">samplehtml</a>
     <br>
-    See <a href ="https://github.com/Reown/NTUiCal/tree/main/samplesource">samplesource</a>
+    or <a href = "https://github.com/Reown/NTUiCal/tree/main/sampletxt">sampletxt</a>
     </details>
 - Install the required dependencies
     ```
@@ -49,9 +59,9 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
     ```
 - Run script (2 arguements)
     ```
-    python fes/vibe.py <txtFile> <DDMMYYYY>
+    python fes/vibe.py <filePath> <DDMMYYYY>
     ```
-- A ```.ics``` file will be saved in the same directory as your ```.txt``` file with the same name
+- A `.ics` file will be saved in the same directory as your `.html` or `.txt` file with the same name
 
 # Supported Edge Cases
 - [x] Exempted Modules
