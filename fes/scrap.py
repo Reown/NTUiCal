@@ -2,9 +2,9 @@ import codecs
 from bs4 import BeautifulSoup
 from helper import *
 
-def fh(path):
+def fh(raw_html):
 
-    raw_html = codecs.open(path, 'r').read()
+    #raw_html = codecs.open(path, 'r').read()
     soup = BeautifulSoup(raw_html, features="html.parser")
 
     table = soup.find("table", attrs={"border": ""})

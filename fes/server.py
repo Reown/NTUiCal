@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import Flask, render_template, request, send_file, send_from_directory, session
 from vibe import *
 from groove import *
-from scrap import *
+from scrap import fh
 
 app = Flask(__name__)
 app.secret_key = "onprod" #local
@@ -24,7 +24,7 @@ def calview():
 def parse():
     ufile = request.files['file']
     if ufile and ufile.filename.endswith('.html'):
-        print("nice")
+        course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = fh(ufile)
         
     else:
         getsource = request.form['sourcetxt']
