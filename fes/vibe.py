@@ -4,7 +4,7 @@ import sys
 from ics import Calendar, Event
 from dateutil.relativedelta import *
 from helper import *
-
+from scrap import fh
 
 def minusweek(startofclass):
     weekbef = startofclass+relativedelta(weeks=-1)
@@ -22,8 +22,8 @@ def splitfunc(valsplit):
     course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
     timestart, timeend = cleantime(time)
     allweeks = cleanweeks(weeks)
+    title, ctype, group, day, venue = white(title, ctype, group, day, venue)
     utilday = cleanday(day)
-    title, ctype, group, venue = white(title, ctype, group, venue)
 
     return course, title, ctype, group, utilday, timestart, timeend, venue, allweeks
 
@@ -72,30 +72,36 @@ if __name__ == "__main__":
         print("Invalid Arguments")
         exit(1)
 
-    #s = input("First day of class (DDMMYYYY): ")
-    #s = "09082021"
-
     base, ext = os.path.splitext(sys.argv[1])
-    if ext.lower() != (".txt"):
-        print("This script only works for '.txt' format")
+    if (ext.lower() != (".txt") and ext.lower() != (".html")):
+        print(ext.lower())
+        print("Path to .txt or .html")
         exit(1)
+    
+    else:
+        out_file = base + ".ics"
 
     try:
         s = sys.argv[2]
         startofclass = datetime.datetime.strptime(s, '%d%m%Y')
+        weekbef = minusweek(startofclass)
+
     except:
-        print("Please follow the 'DDMMYYYY' format")
+        print("Follow the 'DDMMYYYY' format")
         exit(1)
 
-    weekbef = minusweek(startofclass)
+    if ext.lower() == (".txt"):
+        with open(sys.argv[1], "r") as myfile:
+             val = myfile.read()
 
-    with open(sys.argv[1], "r") as myfile:
-        val = myfile.read()
+        valsplit = splitraw(val)
+        course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
+        ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
 
-    valsplit = splitraw(val)
-    course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
-    ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
-    out_file = base + ".ics"
+    elif ext.lower() == (".html"):
+        course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = fh(sys.argv[1])
+        ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
+        
     save_ics(ical, out_file)
 
 '''
@@ -109,3 +115,4 @@ print(timeend)
 print(venue)
 print(allweeks)
 '''
+

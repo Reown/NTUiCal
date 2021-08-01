@@ -4,6 +4,7 @@ from datetime import datetime
 from flask import Flask, render_template, request, send_file, send_from_directory, session
 from vibe import *
 from groove import *
+from scrap import fh
 
 app = Flask(__name__)
 app.secret_key = "onprod" #local
@@ -21,21 +22,26 @@ def calview():
 
 @app.route('/cal', methods = ['POST'])
 def parse():
-    getdate = request.form['getdate2']
-    getsource = request.form['sourcetxt']
-    
-    icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
-    #icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
+    ufile = request.files['file']
+    if ufile and ufile.filename.endswith('.html'):
+        course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = fh(ufile)
+        
+    else:
+        getsource = request.form['sourcetxt']
+        valsplit = splitraw(getsource)
+        if((len(valsplit) - 1) % 14 != 0 or len(valsplit) == 1):
+            return "exception", 500
 
+        course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
+
+    getdate = request.form['getdate2']
     ss = datetime.datetime.strptime(getdate, '%d/%m/%Y')
     weekbef = minusweek(ss)
 
-    valsplit = splitraw(getsource)
-    course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = splitfunc(valsplit)
     ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
     
-    if((len(valsplit) - 1) % 14 != 0 or len(valsplit) == 1):
-        return "exception", 500
+    icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
+    #icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
 
     with open(icspath, 'w') as my_file:
         my_file.writelines(ical)
