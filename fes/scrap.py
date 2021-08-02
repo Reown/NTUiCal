@@ -1,10 +1,8 @@
-import codecs
 from bs4 import BeautifulSoup
 from helper import *
 
 def fh(raw_html):
 
-    #raw_html = codecs.open(path, 'r').read()
     soup = BeautifulSoup(raw_html, features="html.parser")
 
     table = soup.find("table", attrs={"border": ""})
@@ -32,7 +30,12 @@ def fh(raw_html):
         day.append(temprow[11])
         time.append(temprow[12])
         venue.append(temprow[13])
-        weeks.append(temprow[14].split(" ")[1])
+        
+        try:
+            weeks.append(temprow[14].split(" ")[1])
+
+        except:
+            weeks.append("")
 
     topop = checkdel(weeks)
     course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
