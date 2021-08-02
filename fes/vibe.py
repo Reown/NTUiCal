@@ -1,6 +1,7 @@
 import datetime
 import os
 import sys
+import codecs
 from ics import Calendar, Event
 from dateutil.relativedelta import *
 from helper import *
@@ -99,7 +100,8 @@ if __name__ == "__main__":
         ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
 
     elif ext.lower() == (".html"):
-        course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = fh(sys.argv[1])
+        raw_html = codecs.open(sys.argv[1], 'r').read()
+        course, title, ctype, group, utilday, timestart, timeend, venue, allweeks = fh(raw_html)
         ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
         
     save_ics(ical, out_file)
