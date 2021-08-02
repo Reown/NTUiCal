@@ -32,7 +32,12 @@ def fh(raw_html):
         day.append(temprow[11])
         time.append(temprow[12])
         venue.append(temprow[13])
-        weeks.append(temprow[14].split(" ")[1])
+        
+        try:
+            weeks.append(temprow[14].split(" ")[1])
+
+        except:
+            weeks.append("")
 
     topop = checkdel(weeks)
     course, title, ctype, group, day, time, venue, weeks = popall(course, title, ctype, group, day, time, venue, weeks, topop)
