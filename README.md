@@ -1,5 +1,5 @@
 # NTUiCal
-Python script to parse data from 'Check/Print Courses Registered' to ICS 
+Python script to parse data from 'Check/Print Courses Registered' to ICS
 
 # Branch Structure
 - main
@@ -37,7 +37,8 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
         <img src="./images/get_data.png">
         <img src="./images/paste_data.png">
         </details>
-- Click ```Parse```
+- Click `Parse` to view vevents
+- Click `Download` to download `.ics` file
 
 ### __OR__
 
