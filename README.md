@@ -20,8 +20,8 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
     <img src="./images/get_date.png">
     <img src="./images/choose_date.png">
     </details>
-- Either upload a `.html` file or paste data from clipboard
-    - __OPTION 1:__ Upload `.html` file of [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2) __[RECOMMENDED]__
+- Either upload a `.html` file or paste table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
+    - __OPTION 1:__ Upload `.html` file __[RECOMMENDED]__
         <details>
         <summary>Example</summary>
         <br>
@@ -29,7 +29,7 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
         <img src="./images/get_html.png">
         <img src="./images/upload_html.png">
         </details>
-    - __OPTION 2:__ Paste table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
+    - __OPTION 2:__ Paste table data from clipboard
         <details>
         <summary>Example</summary>
         <br>
