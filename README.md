@@ -4,14 +4,15 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 # Branch Structure
 - main
 - feature-fes -> flask experiments
-- prod -> deployed to Heroku
+- prod-heroku-outdated -> Heroku shuts down free tier
+- prod-render -> deployed to Render
 
 # Input Data Required
  - Date of semester's first day according to [NTU Calendar](https://www.ntu.edu.sg/admissions/matriculation/academic-calendars)
  - Semester's table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
 
 # Usage
-### 1. Using the deployed [site](https://ntuical-flask.herokuapp.com/)
+### 1. Using the deployed [site](https://ntuical-flask.onrender.com/)
 - Select date of semester's first day
     <details>
     <summary>Example</summary>
