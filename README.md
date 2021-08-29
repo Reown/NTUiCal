@@ -45,7 +45,7 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 ### 2. Executing the [vibe.py](https://github.com/Reown/NTUiCal/blob/main/fes/vibe.py) script locally
 - Clone the repo
     ```
-    $ git clone https://github.com/Reown/NTUiCal
+    $ git clone https://github.com/Reown/NTUiCal.git
     ```
 - Save your [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2) either as a `.html` or copied to a `.txt` file
     <details>
@@ -56,11 +56,11 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
     </details>
 - Install the required dependencies
     ```
-    pip install -r requirements.txt
+    $ pip install -r requirements.txt
     ```
 - Run script (2 arguements)
     ```
-    python fes/vibe.py <filePath> <DDMMYYYY>
+    $ python fes/vibe.py <filePath> <DDMMYYYY>
     ```
 - A `.ics` file will be saved in the same directory as your `.html` or `.txt` file with the same name
 
