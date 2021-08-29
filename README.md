@@ -64,7 +64,7 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
     ```
 - A `.ics` file will be saved in the same directory as your `.html` or `.txt` file with the same name
 
-# Supported Edge Cases
+# Supported Cases
 - [x] Exempted Modules
 - [x] Online Modules
 - [x] Recess Week
@@ -72,3 +72,5 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
 - [x] Merged rows (Empty Course/Title)
 - [ ] Missing Laboratory Codes (Engineering only?)
 - [ ] 'Asynchronous online learning' Remark
+- [ ] HTML from STARS
+- [ ] Exam Schedule
