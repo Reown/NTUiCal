@@ -7,8 +7,8 @@ from groove import *
 from scrap import fh
 
 app = Flask(__name__)
-app.secret_key = "onprod" #local
-#app.secret_key = os.getenv('SECRET_KEY', 'onprod') #heroku
+#app.secret_key = "onprod" #local
+app.secret_key = os.getenv('SECRET_KEY', 'onprod') #heroku
 
 @app.route('/')
 def index():
@@ -40,8 +40,8 @@ def parse():
 
     ical = p2cal(weekbef, course, title, ctype, group, utilday, timestart, timeend, venue, allweeks)
     
-    icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
-    #icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
+    #icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
+    icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
 
     with open(icspath, 'w') as my_file:
         my_file.writelines(ical)
@@ -56,15 +56,15 @@ def parse():
 
 @app.route('/cal/download', methods = ['POST'])
 def download():
-    icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
-    #icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
+    #icspath = (str(session['uid']).split("-"))[0] + ".ics" #local
+    icspath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".ics" #heroku
     return send_file(icspath, as_attachment=True)
     #return send_from_directory("static", "events.json")
 
 @app.route('/data')
 def return_data():
-    jsonpath = (str(session['uid']).split("-"))[0] + ".json" #local
-    #sonpath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".json" #heroku
+    #jsonpath = (str(session['uid']).split("-"))[0] + ".json" #local
+    jsonpath = "/tmp/" + (str(session['uid']).split("-"))[0] + ".json" #heroku
     with open(jsonpath, "r") as input_data:
         return input_data.read()
 
