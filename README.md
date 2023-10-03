@@ -12,7 +12,7 @@ Python script to parse data from 'Check/Print Courses Registered' to ICS
  - Semester's table data from [Check/Print Courses Registered](https://sso.wis.ntu.edu.sg/webexe88/owa/sso_redirect.asp?t=1&app=https://wish.wis.ntu.edu.sg/pls/webexe/aus_stars_check.check_subject_web2)
 
 # Usage
-### 1. Using the deployed [site](https://ntuical-flask.onrender.com/)
+### 1. Using the deployed [site](https://ntuical.onrender.com)
 - Select date of semester's first day
     <details>
     <summary>Example</summary>
